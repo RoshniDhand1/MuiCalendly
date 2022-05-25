@@ -1,6 +1,7 @@
 import React from 'react'
-import {Select, MenuItem, Box, SvgIcon} from '@mui/material';
+import {Select, MenuItem, Box, SvgIcon,Chip} from '@mui/material';
 import PublicIcon from '@mui/icons-material/Public';
+import { StyleSelectBox } from '../../Themes';
 
 const timzones =[
     'Estern Timezone (ET)',
@@ -13,13 +14,16 @@ const selectContainer = {
     display: "flex", 
     gap: 1, 
     justifyContent: 'start', 
-    alignItems:'center' 
+    alignItems:'center' ,
+   
 }
 
-const SelectTimeZone = () => {
+const SelectTimeZone = (props) => {
+    const classes = StyleSelectBox(props);
     return (
         <Select
             fullWidth
+            className={classes.dropdownStyle}
             defaultValue="Estern Timezone (ET)"
             renderValue={(value) => {
                 return (
@@ -31,6 +35,7 @@ const SelectTimeZone = () => {
                     </Box>
                 );
             }}
+            
         >
             {
                 timzones.map((tz,index)=>(
