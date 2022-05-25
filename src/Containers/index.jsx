@@ -12,12 +12,20 @@ export default function Containers() {
         <Grid container>
             <Grid item xs={4}>
                 <Box sx={{p:5}}>
-                    <a href='#'><ArrowCircleLeftOutlinedIcon  sx={{ '&:hover': { color: 'blue' } }}/></a> <br/>
-                    <Typography>Benefit Specialists</Typography>
-                   <Typography variant="h5"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
-                     Federal Employee Complimentary Phone Meeting
-                   </Typography>
-                    <WatchLaterIcon /> 30 min 
+                    <a href='#'><ArrowCircleLeftOutlinedIcon  sx={{ '&:hover': { color: 'blue' ,fontSize:'450'} }}/></a> <br/>
+                    <Typography fontWeight="bold" sx={{color:'#595959',fontStyle: 'normal'}}>
+                        Benefit Specialists
+                    </Typography>
+                    <Typography variant="h5"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
+                        Federal Employee Complimentary Phone Meeting
+                    </Typography>
+                   
+                    <Box sx={{display:'flex', gap: 1, mt:3, justifyContent:"start", alignContent:"center", color:'#595959',fontStyle: 'normal'}}>
+                        <WatchLaterIcon /> 
+                        <Typography fontWeight="bold">
+                            30 min 
+                        </Typography>
+                    </Box>
                 </Box>
             </Grid> 
             <Grid item xs={8} sx={{borderLeft: '0.1px solid #cdcdcd'}}>
