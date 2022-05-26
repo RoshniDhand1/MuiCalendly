@@ -20,21 +20,34 @@ const selectContainer = {
 
 const SelectTimeZone = (props) => {
     const classes = StyleSelectBox(props);
+    
     return (
         <Select
             fullWidth
+            variant="standard"
+            disableUnderline
             className={classes.dropdownStyle}
             defaultValue="Estern Timezone (ET)"
             renderValue={(value) => {
                 return (
                     <Box sx={selectContainer}>
-                        <SvgIcon >
+                        <SvgIcon fontSize='15px' >
                             <PublicIcon/>
                         </SvgIcon>
                         {value}
                     </Box>
                 );
             }}
+            MenuProps={{
+                PaperProps: {
+                  sx: {
+                    
+                    '& .MuiMenuItem-root': {
+                      fontSize: 10,
+                    },
+                  },
+                },
+              }}
             
         >
             {
