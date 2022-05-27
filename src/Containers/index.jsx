@@ -1,10 +1,11 @@
 import { Button, Grid, Paper, Typography} from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import { blue } from '@mui/material/colors';
 import Calender from '../Components/Calender';
+
 
 export default function Containers() {
   return (
@@ -12,7 +13,7 @@ export default function Containers() {
         <Grid container>
             <Grid item xs={4}>
                 <Box sx={{p:5}}>
-                    <a href='#'><ArrowCircleLeftOutlinedIcon  sx={{ '&:hover': { color: 'blue' ,fontSize:'450'} }}/></a> <br/>
+                    <a href='#'><ArrowBackIcon  sx={{border:1,borderRadius: '50%',fontSize:30 ,padding:0.5,borderColor: 'grey.300' ,color:'#2161ff', marginBottom:3, '&:hover': { bgcolor: '#e3f2fd' } }}/></a> 
                     <Typography fontWeight="bold" sx={{color:'#595959',fontStyle: 'normal'}}>
                         Benefit Specialists
                     </Typography>
@@ -32,12 +33,12 @@ export default function Containers() {
                 <Box sx={{p:5}}>
                     <Grid container>
                         <Grid item xs={7}>
-                        <Typography variant="h6"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
-                            Select a Date & Time
-                        </Typography>
-                        
-                            <Calender />
-                            
+                            <Typography variant="h6"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
+                                Select a Date & Time
+                            </Typography>
+                            <Typography   sx={{ p:3 }}>
+                                <Calender />
+                            </Typography>
                         </Grid>
                         <Grid item xs={5}>
                             TimerView
