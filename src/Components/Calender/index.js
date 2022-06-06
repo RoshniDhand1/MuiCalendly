@@ -1,23 +1,40 @@
-import * as React from 'react';
+import React ,{useState} from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
 import Grid from '@mui/material/Grid';
 import SelectTimeZone from '../SelectTimeZone';
 
-// const minDate = new Date('2020-01-01T00:00:00.000');
-// const maxDate = new Date('2034-01-01T00:00:00.000');
+export default function Calender({onDateSelect,setOnDateSelect}) {
+  
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const handleDateChange = (date) => {
+    setOnDateSelect(date)
+  };
 
-export default function Calender() {
-  const [date, setDate] = React.useState(new Date());
+   const disableWeekends = (date)=>{
+     return date.getDay() === 0 || date.getDay() === 6;
+   }
 
   return (
     <>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <Grid>
-            <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
+     <Grid container spacing={6}>
+     <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Grid  item xs={12} md={6}> 
+          <CalendarPicker
+          className='main_calender'
+          date={onDateSelect}
+          onChange={handleDateChange}
+          disablePast
+          shouldDisableDate={disableWeekends}
+          views={['day']}
+
+        />
           </Grid>
         </LocalizationProvider>
+        </Grid>
+      
+       
     <   SelectTimeZone />
     </>
   );

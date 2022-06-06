@@ -1,52 +1,51 @@
-import { Button, Grid, Paper, Typography} from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react'
-import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
-import WatchLaterIcon from '@mui/icons-material/WatchLater';
-import { blue } from '@mui/material/colors';
+import React,{useState} from 'react'
+import { Paper, Box} from '@mui/material'
 import Calender from '../Components/Calender';
+import { StyleSelectBox } from '../Themes';
+import AppointmentDetail from '../Components/AppointmentDetail';
+import TimerView from '../Components/TimeView';
+import FormView from '../Components/FormView';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Containers() {
-  return (
-    <Paper sx={{m:5}}>
-        <Grid container>
-            <Grid item xs={4}>
-                <Box sx={{p:5}}>
-                    <a href='#'><ArrowCircleLeftOutlinedIcon  sx={{ '&:hover': { color: 'blue' ,fontSize:'450'} }}/></a> <br/>
-                    <Typography fontWeight="bold" sx={{color:'#595959',fontStyle: 'normal'}}>
-                        Benefit Specialists
-                    </Typography>
-                    <Typography variant="h5"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
-                        Federal Employee Complimentary Phone Meeting
-                    </Typography>
-                   
-                    <Box sx={{display:'flex', gap: 1, mt:3, justifyContent:"start", alignContent:"center", color:'#595959',fontStyle: 'normal'}}>
-                        <WatchLaterIcon /> 
-                        <Typography fontWeight="bold">
-                            30 min 
-                        </Typography>
+    //TODO: state for is date selected
+     const [onDateSelect,setOnDateSelect] = useState(null);
+     const matches = useMediaQuery('(min-width:300px)');
+    const classes = StyleSelectBox();
+    return (
+            // desktop view when no TimerView 
+<>
+
+        
+            <Paper sx={{ width:onDateSelect == null ?"70%":"90", display:"flex", justifyContent:"center", alignItem:"center", mt:5, mx:'auto'}}>
+            
+             {/* desktop view when TimerView  */}
+             {/* <Paper sx={{ width:"90%", alignItem:"center", mt:5, mx:'auto'}}> */}
+             {/* <Paper sx={{ width:"90%", display:"flex", justifyContent:"center", alignItem:"center", mt:5, mx:'auto'}}> */}
+                <Box>
+                    <AppointmentDetail />
+                </Box>
+                {/* Mobile View */}
+                
+                {/* <Box width={"100%"} sx={{ borderTop: '0.1px solid #cdcdcd' }}> */}
+                <Box width={"100%"} sx={matches?{ borderTop: '0.1px solid #cdcdcd' }:{ borderLeft: '0.1px solid #cdcdcd' }}>
+                    <Box sx={{ p: 5 }}>
+                        <Box sx={{display:"flex", justifyContent:"space-between", alignItem:"center"}}>
+                        <FormView/>
+                            {/* <Calender onDateSelect ={onDateSelect} setOnDateSelect={setOnDateSelect}/> */}
+                            {/* Todo: If date selected then show the timer */}
+                           {/* {onDateSelect &&                                                                      
+                            <TimerView width="40%"/>
+                           } */}
+                        </Box>
                     </Box>
                 </Box>
-            </Grid> 
-            <Grid item xs={8} sx={{borderLeft: '0.1px solid #cdcdcd'}}>
-                <Box sx={{p:5}}>
-                    <Grid container>
-                        <Grid item xs={7}>
-                        <Typography variant="h6"  fontWeight="bold"  sx={{ fontStyle: 'normal' }}>
-                            Select a Date & Time
-                        </Typography>
-                        
-                            <Calender />
-                            
-                        </Grid>
-                        <Grid item xs={5}>
-                            TimerView
-                        </Grid>
-
-                    </Grid>
-                </Box>
-            </Grid>
-        </Grid>
-    </Paper>
-  )
+              
+            </Paper>
+          
+        
+          
+</>
+            
+    )
 }
