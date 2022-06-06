@@ -7,6 +7,7 @@ import TimerView from '../Components/TimeView';
 import FormView from '../Components/FormView';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+
 export default function Containers() {
     //TODO: state for is date selected
      const [onDateSelect,setOnDateSelect] = useState(null);
@@ -31,12 +32,12 @@ export default function Containers() {
                 <Box width={"100%"} sx={matches?{ borderTop: '0.1px solid #cdcdcd' }:{ borderLeft: '0.1px solid #cdcdcd' }}>
                     <Box sx={{ p: 5 }}>
                         <Box sx={{display:"flex", justifyContent:"space-between", alignItem:"center"}}>
-                        <FormView/>
-                            {/* <Calender onDateSelect ={onDateSelect} setOnDateSelect={setOnDateSelect}/> */}
+                        {/* <FormView/> */}
+                            <Calender onDateSelect ={onDateSelect} setOnDateSelect={setOnDateSelect}/>
                             {/* Todo: If date selected then show the timer */}
-                           {/* {onDateSelect &&                                                                      
+                           {onDateSelect &&                                                                      
                             <TimerView width="40%"/>
-                           } */}
+                           }
                         </Box>
                     </Box>
                 </Box>

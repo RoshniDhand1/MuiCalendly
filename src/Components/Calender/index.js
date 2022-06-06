@@ -15,7 +15,6 @@ export default function Calender({onDateSelect,setOnDateSelect}) {
    const disableWeekends = (date)=>{
      return date.getDay() === 0 || date.getDay() === 6;
    }
-
   return (
     <>
      <Grid container spacing={6}>

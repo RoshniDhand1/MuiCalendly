@@ -18,6 +18,19 @@ const StyleSelectBox = makeStyles((theme )=> ({
      
     },
     
+    arrowIconStyle: 
+    {
+      borderRadius: "40px !important",
+      border: "0px solid rgba(0,0,0,0)",
+      paddingLeft :14,
+      height: 30,
+      fontSize :"13px !important",
+      width:"230px !important",
+      "&:hover ": {
+        backgroundColor: "rgba(0,0,0,.1)"
+      },
+     
+    },
   
     
     
